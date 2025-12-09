@@ -29,8 +29,13 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    console.log("Mongo URI:", process.env.MONGODB_URI);
+
     // Connect to DB
     const client = await clientPromise;
+    
+    console.log("Mongo client connected");
+    
     const db = client.db();
 
     // Save contact query in DB
