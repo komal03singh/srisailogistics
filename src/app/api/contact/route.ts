@@ -55,3 +55,7 @@ export async function POST(request: NextRequest) {
     );
   }
 }
+
+export function GET() {
+  return Response.json({ message: "Contact API working!" });
+}
