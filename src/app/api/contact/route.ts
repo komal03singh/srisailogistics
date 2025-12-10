@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
     if (!name || !email || !phone || !city || !message) {
       return NextResponse.json(
         { error: "All fields are required" },
-        { status: 400 }
+        { status: 400, headers: corsHeaders }
       );
     }
 
@@ -30,7 +30,7 @@ export async function POST(request: NextRequest) {
     if (!emailRegex.test(email)) {
       return NextResponse.json(
         { error: "Invalid email format" },
-        { status: 400 }
+        { status: 400, headers: corsHeaders }
       );
     }
 
@@ -38,7 +38,7 @@ export async function POST(request: NextRequest) {
     if (!phoneRegex.test(phone)) {
       return NextResponse.json(
         { error: "Invalid phone number. Must be 10 digits." },
-        { status: 400 }
+        { status: 400, headers: corsHeaders }
       );
     }
 
